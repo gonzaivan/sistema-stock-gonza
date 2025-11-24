@@ -19,3 +19,5 @@ Route::post('/productos/{product}/nueva-variante', [ProductController::class, 's
 
 Route::get('/variante/{variant}/editar', [ProductController::class, 'editVariant'])->name('variants.edit');
 Route::put('/variante/{variant}', [ProductController::class, 'updateVariant'])->name('variants.update');
+
+Route::delete('/variante/{variant}', [ProductController::class, 'destroyVariant'])->name('variants.destroy');

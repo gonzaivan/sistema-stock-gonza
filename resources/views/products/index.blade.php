@@ -87,8 +87,18 @@
                                 <td class="px-6 py-4 font-mono text-xs text-gray-500">
                                     {{ $variant->sku }}
                                 </td>
-                                <td class="px-6 py-4 text-right">
-                                    <a href="{{ route('variants.edit', $variant) }}" class="font-medium text-blue-600 hover:underline">Editar</a>
+                                <td class="px-6 py-4 text-right flex justify-end gap-2">
+                                    <a href="{{ route('variants.edit', $variant) }}" class="text-blue-600 hover:underline font-medium">
+                                        ✏️ Editar
+                                    </a>
+
+                                    <form action="{{ route('variants.destroy', $variant) }}" method="POST" onsubmit="return confirm('¿Seguro que querés borrar esta variante?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-600 hover:underline font-medium ml-2">
+                                            🗑️ Borrar
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
