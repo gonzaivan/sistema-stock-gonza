@@ -46,8 +46,6 @@ class ProductController extends Controller
 
         return redirect()->route('products.index'); 
     }
-
-    // 3. Mostrar el formulario para agregar UN talle más
     public function createVariant(Product $product)
     {
         return view('products.add-variant', compact('product'));
